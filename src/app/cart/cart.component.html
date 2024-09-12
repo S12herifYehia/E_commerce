@@ -1,0 +1,93 @@
+<section id="cart">
+  <div class="container">
+    <ul>
+      <li><a routerLink="/">home</a></li>
+      <span>/</span>
+      <li><a routerLink="/cart">cart</a></li>
+    </ul>
+
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+      <tr>
+        <td>
+          <div class="imgs">
+            <i class="bx bx-window-close"></i>
+            <img src="assets/home/todays3.png" alt="cart" />
+            <p>LCD Monitor</p>
+          </div>
+          
+        </td>
+        <td>
+          {{ 650 | currency }}
+        </td>
+        <td>
+          <form action="">
+            <input type="number" name="" id="" value="01" />
+          </form>
+        </td>
+        <td>
+          {{ 650 | currency }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="imgs">
+            <i class="bx bx-window-close"></i>
+            <img src="assets/home/todays1.png" alt="cart" />
+            <p>LCD Monitor</p>
+          </div>
+         
+        </td>
+        <td>
+          {{ 650 | currency }}
+        </td>
+        <td>
+          <form action="">
+            <input type="number" value="02" />
+          </form>
+        </td>
+        <td>
+          {{ 650 | currency }}
+        </td>
+      </tr>
+      <tr>
+        <td><button type='button'>return to shop</button></td>
+        <td></td>
+        <td></td>
+        <td><button type='button'>update cart </button></td>
+      </tr>
+    </table>
+
+
+    <div class="carts">
+      <form class="coupon_code">
+        <input type="text" placeholder="Coupon Code">
+        <button type="submit">Apply Coupon</button>
+      </form>
+      <div class="cart_total">
+        <h2>Cart Total</h2>
+        <div class="flexes">
+          <h4>Subtotal:</h4>
+          <p class="price">{{1760 | currency}}</p>
+        </div>
+        <div class="line"></div>
+        <div class="flexes">
+          <h4>Shipping:</h4>
+          <p class="price">Free</p>
+        </div>
+        <div class="line"></div>
+        <div class="flexes">
+          <h4>Total:</h4>
+          <p class="price">{{1760 | currency}}</p>
+        </div>
+        <a class="process" routerLink="/checkout">Procees to checkout</a>
+
+      </div>
+    </div>
+  </div>
+</section>
