@@ -17,12 +17,7 @@ export class HomeComponent {
   intervalid: any;
   num = 0;
 
-
-
-
-  
-  arr:any=[];
-  
+  arr: any = [];
 
   // tableprod:Products[]=[]
   tableprodtodays: any = [];
@@ -48,14 +43,12 @@ export class HomeComponent {
       }, 1000);
     });
 
+    var loc = localStorage.getItem('cardProd');
 
-    var loc=localStorage.getItem('cardProd');
-
-    if(loc!= null){
-      this.arr=JSON.parse(loc)
-
-    }else{
-      this.arr=[];
+    if (loc != null) {
+      this.arr = JSON.parse(loc);
+    } else {
+      this.arr = [];
     }
   }
 
@@ -104,16 +97,16 @@ export class HomeComponent {
     }
   }
 
-  showAddcart(i:any) {
-   var  msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
-   msg_addcart?.classList.add('show');
-   this.arr.push(i)
-  localStorage.setItem('cardProd',JSON.stringify(this.arr))
+  showAddcart(i: any) {
+    var msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
+    msg_addcart?.classList.add('show');
+    this.arr.push(i);
+    localStorage.setItem('cardProd', JSON.stringify(this.arr));
+    // emitChange 
   }
 
-
-  hidecart(){
-    var  msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
-  msg_addcart?.classList.remove('show');
+  hidecart() {
+    var msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
+    msg_addcart?.classList.remove('show');
   }
 }
