@@ -6,12 +6,33 @@ $border_color: rgba($color:#000000,$alpha:0.3);
 $main-trans: 0.3s;
 
 
+.msg_addcart{
+  width: 130px;
+  height: 50px;
+  font-size: 22px;
+  background-color: red;
+  color: white;
+  position: fixed;
+  left: 262px;
+  
+  z-index: 20000;
+  top: -100%;
 
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  transition: 0.2s;
+
+  &.show{
+    top:70px;
+  }
+}
 
 
 .landing_home {
   width: 100%;
   height: 344px;
+  margin-top: 70px;
 
   .container {
     height: 100%;
@@ -29,7 +50,8 @@ $main-trans: 0.3s;
     height: 390px;
     @media(max-width:768px){
       width: 100%;
-      padding: 16px 16px 0px 0px
+      padding: 16px 16px 0px 0px;
+      border:0px;
 
 
     }
@@ -62,7 +84,7 @@ $main-trans: 0.3s;
     height: 373px;
     @media(max-width:767px){
      width: 100%; 
-     padding: 32px;
+     padding: 20px;
      margin: 0;
     }
 
@@ -80,7 +102,6 @@ $main-trans: 0.3s;
   .box {
     display: flex;
     align-items: center;
-    // padding-left: 50px;
     justify-content: center;
     height: 100%;
     gap: 100px;
@@ -277,6 +298,7 @@ $main-trans: 0.3s;
             line-height: 41px;
             border-radius: 0px 0px $raduis $raduis;
             transition: $main-trans;
+            border: 0;
           }
           &:hover .addcart {
             bottom: 0;
@@ -552,8 +574,10 @@ $main-trans: 0.3s;
     }
 
     img {
-      width: 568px;
-      height: 420px;
+      // width: 568px;
+      // height: 420px;
+      width: 483px;
+      height: 432px;
       align-items: center;
       direction: ltr;
       @media (max-width:767px) {

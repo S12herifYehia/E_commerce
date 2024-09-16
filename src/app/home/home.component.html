@@ -1,3 +1,6 @@
+<app-settings></app-settings>
+
+<div class="msg_addcart">تم اضافه المنتج</div>
 <div class="landing_home">
   <div class="container">
     <aside>
@@ -45,10 +48,12 @@
         --swiper-pagination-bullet-inactive-color: #ffffff;
         --swiper-pagination-bullet-size: 12px;
       "
-      
+      autoplay="true"
+      loop="true"
+      autoplay-delay="1000"
+      pagination-clickable="true"
     >
-
-    <!-- autoplay="true"
+      <!-- autoplay="true"
       autoplay-delay="1000"
       loop="true" -->
       <!-- <div class="content"> -->
@@ -123,21 +128,21 @@
         <div class="clock">
           <div class="day clo">
             <span>Days</span>
-            <h3>03 <span>:</span></h3>
+            <h3>{{ this.day < 10 ? "0" + this.day:this.day }} <span>:</span></h3>
           </div>
 
           <div class="hours clo">
             <span>hours</span>
-            <h3>23 <span>:</span></h3>
+            <h3>{{ this.hour < 10 ? "0" + this.hour : this.hour }} <span>:</span></h3>
           </div>
           <div class="minute clo">
             <span>minutes</span>
-            <h3>19 <span>:</span></h3>
+            <h3>{{ this.minute < 10 ? "0" + this.minute : this.minute }} <span>:</span></h3>
           </div>
 
           <div class="seconds clo">
             <span>seconds</span>
-            <h3>56</h3>
+            <h3>{{ this.second < 10 ? "0" + this.second :this.second}}</h3>
           </div>
         </div>
         <div class="arrow">
@@ -146,10 +151,10 @@
         </div>
       </div>
     </div>
-    <div class="carts_discount"> 
-    <!-- <swiper-wrapper class="carts_discount" > -->
-     
-      <div class="cart">
+    <div class="carts_discount">
+      <!-- <swiper-wrapper class="carts_discount" > -->
+
+      <div class="cart" *ngFor="let prod of tableprodtodays ; let b=index">
         <div class="head_cart">
           <span class="discount">-40%</span>
 
@@ -158,12 +163,15 @@
             <i class="bx bxs-bullseye"></i>
           </div>
 
-          <img src="assets/home/todays1.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
+          <img [src]="prod.imgurl" alt="today" />
+          <button class="addcart" (click)="showAddcart(prod)">Add To Cart</button>
         </div>
         <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
+          <h3>{{ prod.title }}</h3>
+          <p class="price">
+            {{ prod.price | currency }}
+            <span class="discount">{{ prod.discount | currency }}</span>
+          </p>
           <div class="star">
             <i class="bx bxs-star"></i>
             <i class="bx bxs-star"></i>
@@ -175,86 +183,8 @@
         </div>
       </div>
 
-      <div class="cart">
-        <div class="head_cart">
-          <span class="discount">-35%</span>
-
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/todays2.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <span class="discount">-30%</span>
-
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/todays3.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <span class="discount">-25%</span>
-
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/todays4.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-   
-    <!-- </swiper-wrapper> -->
-  </div>
+      <!-- </swiper-wrapper> -->
+    </div>
     <a routerLink="/wishlist" class="view">View all catogery</a>
   </div>
 </section>
@@ -333,87 +263,21 @@
     </div>
 
     <div class="carts_discount">
-      <div class="cart">
+      <div class="cart" *ngFor="let month of tablemonth">
         <div class="head_cart">
           <div class="icons">
             <i class="bx bx-heart"></i>
             <i class="bx bxs-bullseye"></i>
           </div>
 
-          <img src="assets/home/month1.png" alt="month" />
+          <img [src]="month.imgurl" alt="month" />
         </div>
         <div class="body_cart">
-          <h3>The north coat</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/month2.png" alt="month" />
-        </div>
-        <div class="body_cart">
-          <h3>Gucci duffle bag</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/month3.png" alt="month" />
-        </div>
-        <div class="body_cart">
-          <h3>RGB liquid CPU Cooler</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/month4.png" alt="month" />
-        </div>
-        <div class="body_cart">
-          <h3>Small BookSelf</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
+          <h3>{{ month.title }}</h3>
+          <p class="price">
+            {{ month.price | currency
+            }}<span class="discount">{{ month.discount | currency }}</span>
+          </p>
           <div class="star">
             <i class="bx bxs-star"></i>
             <i class="bx bxs-star"></i>
@@ -481,195 +345,25 @@
     </div>
 
     <div class="carts_discount">
-      <div class="cart">
+      <div class="cart" *ngFor="let product of ourproduct">
         <div class="head_cart">
           <div class="icons">
             <i class="bx bx-heart"></i>
             <i class="bx bxs-bullseye"></i>
           </div>
 
-          <img src="assets/home/product1.jpeg" alt="today" />
+          <img [src]="product.imgurl" alt="today" />
           <a href="#" class="addcart">Add To Cart</a>
         </div>
         <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
+          <h3>{{product.title}}</h3>
+          <p class="price">{{product.price | currency}}  <span class="discount">{{product.discount | currency}}</span></p>
           <div class="star">
             <i class="bx bxs-star"></i>
             <i class="bx bxs-star"></i>
             <i class="bx bxs-star"></i>
             <i class="bx bxs-star"></i>
             <i class="bx bxs-star"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product2.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product3.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <span class="new">New</span>
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product4.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product5.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product6.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <span class="new">New</span>
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product7.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
-            <span class="count">(88)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <div class="head_cart">
-          <div class="icons">
-            <i class="bx bx-heart"></i>
-            <i class="bx bxs-bullseye"></i>
-          </div>
-
-          <img src="assets/home/product8.png" alt="today" />
-          <a href="#" class="addcart">Add To Cart</a>
-        </div>
-        <div class="body_cart">
-          <h3>HAVIT HV-G92 Gamepad</h3>
-          <p class="price">$120 <span class="discount">$160</span></p>
-          <div class="star">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star no-active"></i>
             <span class="count">(88)</span>
           </div>
         </div>

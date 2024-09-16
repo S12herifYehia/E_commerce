@@ -13,17 +13,19 @@
         <th>Quantity</th>
         <th>Subtotal</th>
       </tr>
-      <tr>
+      <tr *ngFor="let pro of arr">
+        
+        
         <td>
           <div class="imgs">
-            <i class="bx bx-window-close"></i>
-            <img src="assets/home/todays3.png" alt="cart" />
-            <p>LCD Monitor</p>
+            <i class="bx bx-window-close" (click)="remove(pro)"></i>
+            <img [src]="pro.imgurl" alt="cart" />
+            <p>{{pro.title}}</p>
           </div>
           
         </td>
         <td>
-          {{ 650 | currency }}
+          {{ pro.price | currency }}
         </td>
         <td>
           <form action="">
@@ -31,29 +33,12 @@
           </form>
         </td>
         <td>
-          {{ 650 | currency }}
+          {{ pro.discount | currency }}
         </td>
+      
       </tr>
-      <tr>
-        <td>
-          <div class="imgs">
-            <i class="bx bx-window-close"></i>
-            <img src="assets/home/todays1.png" alt="cart" />
-            <p>LCD Monitor</p>
-          </div>
-         
-        </td>
-        <td>
-          {{ 650 | currency }}
-        </td>
-        <td>
-          <form action="">
-            <input type="number" value="02" />
-          </form>
-        </td>
-        <td>
-          {{ 650 | currency }}
-        </td>
+      <tr *ngIf="arr.length==0"  >
+      <td colspan="4"> <h1>No Data</h1></td>
       </tr>
       <tr>
         <td><button type='button'>return to shop</button></td>

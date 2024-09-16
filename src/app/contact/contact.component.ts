@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
   email:string="@gmail";
+  quantity=100;
+
+  writing(e:any){
+    this.quantity=100 -  e.target.value.length 
+  }
+  
+
+
+
+
 }

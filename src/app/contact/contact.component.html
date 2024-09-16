@@ -40,7 +40,12 @@
         <input type="email" placeholder="Your Email*">
         <input type="tel" placeholder="Your Phone*">
         <br>
-        <textarea placeholder="Your Message"></textarea>
+        <div class="msg_contact">
+            <textarea placeholder="Your Message" [maxLength]="100" (keydown)="writing($event)"></textarea>
+            <span class="quaintity_msg" >{{quantity}}</span>
+        </div>
+       
+        
         <button type="submit">Send Message</button>
     </form>
     </div>

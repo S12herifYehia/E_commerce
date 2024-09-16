@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { MyaccountComponent } from './myaccount/myaccount.component';
-import { GamingComponent } from './gaming/gaming.component';
 
 const routes: Routes = [
   {
@@ -31,13 +27,31 @@ const routes: Routes = [
       import('./login/login.module').then((m) => m.LoginModule),
   },
 
-  {path:'cart',loadChildren:()=>import('./cart/cart.module').then(m=>m.CartModule)},
-  {path:'checkout',loadChildren:()=>import('./checkout/checkout.module').then(m=>m.CheckoutModule)},
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
+  },
+  {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./checkout/checkout.module').then((m) => m.CheckoutModule),
+  },
 
-  {path:'wishlist',loadChildren:()=>import('./wishlist/wishlist.module').then(m=>m.WishlistModule)},
-  {path:'myaccount',loadChildren:()=>import('./myaccount/myaccount.module').then(m=>m.MyaccountModule)},
-  {path:'product_details',loadChildren:()=>import('./gaming/gaming.module').then(m=>m.GamingModule)},
-  
+  {
+    path: 'wishlist',
+    loadChildren: () =>
+      import('./wishlist/wishlist.module').then((m) => m.WishlistModule),
+  },
+  {
+    path: 'myaccount',
+    loadChildren: () =>
+      import('./myaccount/myaccount.module').then((m) => m.MyaccountModule),
+  },
+  {
+    path: 'product_details',
+    loadChildren: () =>
+      import('./gaming/gaming.module').then((m) => m.GamingModule),
+  },
   { path: '**', redirectTo: 'not-found' },
   {
     path: 'not-found',
@@ -46,9 +60,6 @@ const routes: Routes = [
         (m) => m.PagenotfoundModule
       ),
   },
-
-
-  
 ];
 
 @NgModule({

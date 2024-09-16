@@ -8,17 +8,36 @@ $border_color:#ddd;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    columns: $main-color;
+    // columns: $main-color;
+
 }
 
+.shows{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #00000075;
+}
+
+::selection{
+  background-color: #000000;
+  color: #Db4444;
+}
 body{
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    overflow-x: hidden;
+    // overflow-x: hidden;
+    // cursor:none;
+
 }
 
 body,html{
+@media(max-width:768px){
   overflow-x: hidden;
+}
+
 }
 
 button{
@@ -173,3 +192,5 @@ section{
  
  }
  
+
+

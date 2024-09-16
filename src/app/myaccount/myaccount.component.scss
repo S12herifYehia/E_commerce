@@ -28,6 +28,7 @@
         justify-content: flex-end;
         color: #000000;
         text-transform: capitalize;
+        font-size: 14px;
         span {
           color: #db4444;
         }
@@ -37,6 +38,7 @@
     .manage_account {
       display: flex;
       padding: 50px 0px;
+      flex-wrap: wrap;
       @media(max-width:768px){
         flex-direction: column;
 
@@ -70,14 +72,19 @@
       .right {
         width: 870px;
         box-shadow: 0px 0px 13px rgba($color: #000000, $alpha: 5%);
-        height: 630px;
+        // height: 630px;
+        height: 820px;
         padding: 30px 50px;
         
-        @media(max-width:768px){
+        @media(max-width:767px){
             width: 100%;
 
             margin: 0px 0px 130px 0px;
             padding: 15px 30px;
+        }
+        @media (min-width:768px) and (max-width:992px) {
+          height: 820px;
+          
         }
         h2{
             font-size: 20px;
