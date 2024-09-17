@@ -9,7 +9,7 @@
       </ul>
 
       <div class="details">
-        <div class="alt_imgs">
+        <div class="alt_imgs" >
             <img src="assets/gaming/1.png" alt="gaming">
             <img src="assets/gaming/2.png" alt="gaming">
             <img src="assets/gaming/3.png" alt="gaming">
@@ -18,14 +18,14 @@
         </div>
 
         <div class="main_img">
-            <img src="assets/gaming/main.png" alt="main_gaming">
+            <img [src]="details.imgurl" alt="main_gaming">
         </div>
 
 
 
         <div class="info_heading">
             <div class="title_gaming">
-                <h2>Havic HV G-92 Gamepad</h2>
+                <h2>{{details.title}}</h2>
                 <div class="assess">
                     <div class="icon">
                         <i class="fas fa-star"></i>
@@ -43,8 +43,8 @@
                 </div>
             </div>
             <div class="body_gaming">
-                <h4 class="price">$192.0</h4>
-                <p class="datail_gaming">PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
+                <h4 class="price">${{details.price}}</h4>
+                <p class="datail_gaming">{{details.details}}</p>
                 
             </div>
             <div class="line"></div>

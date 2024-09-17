@@ -14,51 +14,54 @@
         <th>Subtotal</th>
       </tr>
       <tr *ngFor="let pro of arr">
-        
-        
         <td>
           <div class="imgs">
             <i class="bx bx-window-close" (click)="remove(pro)"></i>
             <img [src]="pro.imgurl" alt="cart" />
-            <p>{{pro.title}}</p>
+            <p>{{ pro.title }}</p>
           </div>
-          
         </td>
         <td>
-          {{ pro.price | currency }}
+          {{ pro.price }}
         </td>
         <td>
           <form action="">
-            <input type="number" name="" id="" value="01" />
+            <input
+              type="number"
+              name=""
+              id=""
+              value="0"
+              #num
+              [value]="pro.quantity || 0"
+              (change)="onChangeNum(pro, num.value)"
+            />
           </form>
         </td>
         <td>
-          {{ pro.discount | currency }}
+          {{pro.totalPrice || pro.price }}
         </td>
-      
       </tr>
-      <tr *ngIf="arr.length==0"  >
-      <td colspan="4"> <h1>No Data</h1></td>
+      <tr *ngIf="arr.length == 0">
+        <td colspan="4"><h1>No Data</h1></td>
       </tr>
       <tr>
-        <td><button type='button'>return to shop</button></td>
+        <td><button type="button">return to shop</button></td>
         <td></td>
         <td></td>
-        <td><button type='button'>update cart </button></td>
+        <td><button type="button">update cart</button></td>
       </tr>
     </table>
 
-
     <div class="carts">
       <form class="coupon_code">
-        <input type="text" placeholder="Coupon Code">
+        <input type="text" placeholder="Coupon Code" />
         <button type="submit">Apply Coupon</button>
       </form>
       <div class="cart_total">
         <h2>Cart Total</h2>
         <div class="flexes">
           <h4>Subtotal:</h4>
-          <p class="price">{{1760 | currency}}</p>
+          <p class="price">{{ quan }}</p>
         </div>
         <div class="line"></div>
         <div class="flexes">
@@ -68,10 +71,9 @@
         <div class="line"></div>
         <div class="flexes">
           <h4>Total:</h4>
-          <p class="price">{{1760 | currency}}</p>
+          <p class="price">{{ quan }}</p>
         </div>
         <a class="process" routerLink="/checkout">Procees to checkout</a>
-
       </div>
     </div>
   </div>

@@ -1,8 +1,9 @@
 import { Component, Renderer2, NgZone } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { Products } from '../models/products';
 import { ProductserviceService } from '../services/productservice.service';
+import { json } from 'stream/consumers';
 register();
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent {
   num = 0;
 
   arr: any = [];
+  arr_details: any = [];
 
   // tableprod:Products[]=[]
   tableprodtodays: any = [];
@@ -26,7 +28,8 @@ export class HomeComponent {
 
   constructor(
     private serviceproductToday: ProductserviceService,
-    private ngzone: NgZone
+    private ngzone: NgZone,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +37,7 @@ export class HomeComponent {
     this.getmonth();
     this.getproduct();
 
+    // this.onShowDetails();
     this.ngzone.runOutsideAngular(() => {
       this.intervalid = setInterval(() => {
         this.ngzone.run(() => {
@@ -102,11 +106,77 @@ export class HomeComponent {
     msg_addcart?.classList.add('show');
     this.arr.push(i);
     localStorage.setItem('cardProd', JSON.stringify(this.arr));
-    // emitChange 
+    // emitChange
   }
 
   hidecart() {
     var msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
     msg_addcart?.classList.remove('show');
+  }
+
+  // onShowDetails() {
+  //   this.router.navigate(['/product_details']);
+  //   // setTimeout(()=>{
+  //   const cart = document.querySelector('#todays .cart h3')?.parentElement;
+  //   const sibli = cart?.previousSibling as HTMLElement
+
+  //   // var child_sibli=sibli?.lastChild
+ 
+
+
+  //   if (sibli) {
+  //     // احصل على جميع العناصر الفرعية للعنصر السابق
+  //     const children = Array.from(sibli.children);
+ 
+
+  //   // for (var b = 0; b < children.length - 1; b++) {
+  //   //   console.log(children[children.length - 2 ]);
+  //   // }
+  //   }
+  //   // console.log(sibli);
+  //   // console.log(cart)
+  //   if (cart) {
+  //     const child = cart.children;
+
+  //     // console.log(child)
+
+  //     // this.arr_details=child;
+  //     // console.log(this.arr)
+
+  //     // for(var i = 0; i<cart.length)
+  //     // for(var i = 0 ; i < child.length; i++){
+  //     // console.log(child[i])
+  //     // لو عاوز النص والعنصر لاغير
+  //     // this.arr_details=Array.from(child).map(child=>({
+  //     //   textContent: child.textContent,
+  //     //   tagName: child.tagName
+  //     // }))
+
+  //     // لو عاوز النص فقط لاغير
+  //     this.arr_details = Array.from(child).map((child) => ({
+  //       textContent: child.textContent,
+  //     }));
+  //     console.log(this.arr_details);
+  //     localStorage.setItem('arr_details', JSON.stringify(this.arr_details));
+  //     // }
+  //   } else {
+  //     console.error('Element not found');
+  //   }
+
+  //   // },1000)
+  // }
+
+
+
+
+
+
+  onShowDetails(prod:any){
+    this.router.navigate(['/product_details']);
+    // this.arr_details = prod
+    localStorage.setItem('prod_details',JSON.stringify(prod));
+
+    // console.log(this.arr_details)
+
   }
 }

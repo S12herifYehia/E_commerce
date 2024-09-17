@@ -10,27 +10,31 @@ export class ProductserviceService {
   producttabletodays = [
     {
       imgurl: 'assets/home/todays1.png',
-      title: 'HAVIT HV-G92 Gamepad',
+      title: 'PlayStation Arm',
       price: 120,
       discount: 160,
+      details:"PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive."
     },
     {
       imgurl: 'assets/home/todays2.png',
-      title: 'HAVIT HV-G92 Gamepad',
-      price: 120,
+      title: 'Illuminated keyboard',
+      price: 150,
       discount: 160,
+      details:'A keyboard is one of the primary input devices used with a computer. Like an electric typewriter, a keyboard is composed of buttons to create letters, numbers, and symbols, and perform additional functions. The following sections provide more in-depth information and answers to frequently asked questions about the keyboard.'
     },
     {
       imgurl: 'assets/home/todays3.png',
-      title: 'HAVIT HV-G92 Gamepad',
-      price: 120,
-      discount: 160,
+      title: 'TV screen',
+      price: 180,
+      discount: 190,
+      details:'Recent leaps in TV sizes (98-inch TVs), resolution—we’re looking at you, 8K TVs—and viewing technology have made getting a new TV fun and exciting, but buying the best TV can quickly turn into a frustrating experience when you have no clue what any of the terms, tech jargon, specs, and formats even mean.'
     },
     {
       imgurl: 'assets/home/todays4.png',
-      title: 'HAVIT HV-G92 Gamepad',
-      price: 120,
-      discount: 160,
+      title: 'chair',
+      price: 190,
+      discount: 200,
+      details:"chair, seat with a back, intended for one person. It is one of the most ancient forms of furniture, dating from the 3rd dynasty of ancient Egypt (c. 2650–c. 2575 bce)."
     },
   ];
 
