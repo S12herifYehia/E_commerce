@@ -32,13 +32,15 @@
               id=""
               value="0"
               #num
+              
               [value]="pro.quantity || 0"
               (change)="onChangeNum(pro, num.value)"
             />
           </form>
         </td>
+        <!-- [value]="pro.quantity || 0" -->
         <td>
-          {{pro.totalPrice || pro.price }}
+          {{pro.totalPrice || 0  }}
         </td>
       </tr>
       <tr *ngIf="arr.length == 0">

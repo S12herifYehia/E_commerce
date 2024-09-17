@@ -36,6 +36,7 @@ export class HomeComponent {
     this.getprodtodays();
     this.getmonth();
     this.getproduct();
+    this.hidecart()
 
     // this.onShowDetails();
     this.ngzone.runOutsideAngular(() => {
@@ -43,9 +44,21 @@ export class HomeComponent {
         this.ngzone.run(() => {
           this.timestoday();
           this.hidecart();
+         
         });
       }, 1000);
     });
+
+    // this.ngzone.runOutsideAngular(() => {
+    //   this.intervalid = setInterval(() => {
+    //     this.ngzone.run(() => {
+    //       // this.timestoday();
+    //       this.hidecart();
+    //     });
+    //   }, 3000);
+    // });
+
+    
 
     var loc = localStorage.getItem('cardProd');
 
@@ -110,8 +123,11 @@ export class HomeComponent {
   }
 
   hidecart() {
-    var msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
-    msg_addcart?.classList.remove('show');
+    // setTimeout(function(){
+      var msg_addcart = document.querySelector('.msg_addcart') as HTMLElement;
+      msg_addcart?.classList.remove('show');
+    // },3000)
+   
   }
 
   // onShowDetails() {

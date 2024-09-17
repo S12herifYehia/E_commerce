@@ -15,6 +15,13 @@ export class CartComponent {
     this.getProd();
   //  this.getSubTotal();
   this.calculateTotal()
+  }
+
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    
    
   }
 
@@ -39,16 +46,19 @@ export class CartComponent {
 
    this.arr.splice(i,1)
     localStorage.setItem('cardProd',JSON.stringify(this.arr));
-    // this.calculateTotal()
+    this.calculateTotal()
 
   }
 
   onChangeNum(product:any,price:any){
     // this.quan = +q * price
-    product.quantity = price;
-    product.totalPrice = price * product.price;
-    localStorage.setItem('cardProd', JSON.stringify(this.arr));
-    this.calculateTotal();
+    
+      product.quantity = price;
+      product.totalPrice = price * product.price;
+      localStorage.setItem('cardProd', JSON.stringify(this.arr));
+      this.calculateTotal();
+    
+    
 
     
 
@@ -75,7 +85,10 @@ export class CartComponent {
 
   calculateTotal(){
    this.arr.reduce((totalPrice:any,product:any)=>{
-    return this.quan=totalPrice + (product.totalPrice);
+   
+      return this.quan=+totalPrice + +(product.totalPrice);
+    
+
    },0)
 }
 }
